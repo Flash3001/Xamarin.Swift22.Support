@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B837D96F-AA4E-4CA4-8767-8E5A1A2C210E}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Xamarin.SwiftSupport</RootNamespace>
+    <AssemblyName>Xamarin.SwiftSupport.2.2</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>lib\xamarinios10</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>lib\xamarinios10</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="build\Xamarin.iOS.Tasks.Core.dll" />
+    <Content Include="build\Xamarin.iOS.Tasks.dll" />
+    <Content Include="Frameworks\libswiftContacts.dylib" />
+    <Content Include="Frameworks\libswiftCore.dylib" />
+    <Content Include="Frameworks\libswiftCoreGraphics.dylib" />
+    <Content Include="Frameworks\libswiftCoreImage.dylib" />
+    <Content Include="Frameworks\libswiftDarwin.dylib" />
+    <Content Include="Frameworks\libswiftDispatch.dylib" />
+    <Content Include="Frameworks\libswiftFoundation.dylib" />
+    <Content Include="Frameworks\libswiftObjectiveC.dylib" />
+    <Content Include="Frameworks\libswiftUIKit.dylib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SwiftFrameworksSimulator\libswiftContacts.dylib" />
+    <Content Include="SwiftFrameworksSimulator\libswiftCore.dylib" />
+    <Content Include="SwiftFrameworksSimulator\libswiftCoreGraphics.dylib" />
+    <Content Include="SwiftFrameworksSimulator\libswiftCoreImage.dylib" />
+    <Content Include="SwiftFrameworksSimulator\libswiftDarwin.dylib" />
+    <Content Include="SwiftFrameworksSimulator\libswiftDispatch.dylib" />
+    <Content Include="SwiftFrameworksSimulator\libswiftFoundation.dylib" />
+    <Content Include="SwiftFrameworksSimulator\libswiftObjectiveC.dylib" />
+    <Content Include="SwiftFrameworksSimulator\libswiftUIKit.dylib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build\Xamarin.SwiftSupport.targets" />
+  </ItemGroup>
+</Project>
