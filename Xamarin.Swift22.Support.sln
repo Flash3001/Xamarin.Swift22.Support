@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Swift22.Support", "Xamarin.SwiftSupport.2.2\Xamarin.Swift22.Support.csproj", "{B837D96F-AA4E-4CA4-8767-8E5A1A2C210E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Swift22.Support", "Xamarin.Swift22.Support\Xamarin.Swift22.Support.csproj", "{B837D96F-AA4E-4CA4-8767-8E5A1A2C210E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
