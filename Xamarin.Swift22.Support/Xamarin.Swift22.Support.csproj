@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -22,9 +22,18 @@
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone|AnyCPU' ">
     <Optimize>true</Optimize>
-    <OutputPath>lib\xamarinios10</OutputPath>
+    <OutputPath>lib\xamarinios10\iPhone\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'iPhoneSimulator|AnyCPU'">
+    <Optimize>true</Optimize>
+    <OutputPath>lib\xamarinios10\iPhoneSimulator\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -44,7 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'iPhone'">
     <Content Include="Frameworks\libswiftContacts.dylib" />
     <Content Include="Frameworks\libswiftCore.dylib" />
     <Content Include="Frameworks\libswiftCoreGraphics.dylib" />
@@ -55,7 +64,7 @@
     <Content Include="Frameworks\libswiftObjectiveC.dylib" />
     <Content Include="Frameworks\libswiftUIKit.dylib" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'iPhoneSimulator'">
     <Content Include="SwiftFrameworksSimulator\libswiftContacts.dylib" />
     <Content Include="SwiftFrameworksSimulator\libswiftCore.dylib" />
     <Content Include="SwiftFrameworksSimulator\libswiftCoreGraphics.dylib" />

@@ -2,7 +2,19 @@
   <UsingTask TaskName="Microsoft.Build.Tasks.Copy" Condition="$(OS) == 'Windows'" AssemblyFile="Xamarin.iOS.Tasks.dll" />
   <UsingTask TaskName="Microsoft.Build.Tasks.RemoveDir" Condition="$(OS) == 'Windows'"  AssemblyFile="Xamarin.iOS.Tasks.dll" />
   <UsingTask TaskName="Microsoft.Build.Tasks.Delete" Condition="$(OS) == 'Windows'" AssemblyFile="Xamarin.iOS.Tasks.dll" />
-	
+
+  <Target Name="PlatformCheck" BeforeTargets="InjectReference" Condition="(('$(Platform)' != 'iPhone') AND  ('$(Platform)' != 'iPhoneSimulator'))">
+    <Error  Text="$(MSBuildThisFileName) does not work on '$(Platform)' platform. Specify platform iPhone or iPhoneSimulator." />
+  </Target>
+
+  <Target Name="InjectReference" BeforeTargets="ResolveAssemblyReferences">
+    <ItemGroup Condition="'$(Platform)' == 'iPhone' or '$(Platform)' == 'iPhoneSimulator'">
+      <Reference Include="Xamarin.Swift22.Support, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+        <HintPath>$(MSBuildThisFileDirectory)..\lib\xamarinios10\$(Platform)\Xamarin.Swift22.Support.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+  </Target>
+
   <PropertyGroup Condition="'$(Platform)' == 'iPhoneSimulator'">
     <CreateAppBundleDependsOn>
 		$(CreateAppBundleDependsOn);
@@ -11,11 +23,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Platform)' == 'iPhone'">
 	<CodesignDependsOn>
-		$(CodesignDependsOn);
-		_RemoveExtraLibs;
-	</CodesignDependsOn>
+    $(CodesignDependsOn);
+    _RemoveExtraLibs;
+  </CodesignDependsOn>
   </PropertyGroup>
-  
+
   <Target Name="_CopySwiftLibsSimulator">
     <ItemGroup>
         <_SwiftLibsSimulator Include="$(_AppBundlePath)SwiftFrameworksSimulator\libswift*.dylib" />
@@ -26,7 +38,7 @@
     <Delete SessionId="$(BuildSessionId)" Files="@(_SwiftLibsDevice)" />
     <Copy SessionId="$(BuildSessionId)" SourceFiles="@(_SwiftLibsSimulator)" DestinationFolder="$(_AppBundlePath)Frameworks" />
   </Target>
-  
+
   <Target Name="_RemoveExtraLibs">
     <RemoveDir SessionId="$(BuildSessionId)" Directories="$(_AppBundlePath)SwiftFrameworksSimulator" />
   </Target>
