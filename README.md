@@ -1,6 +1,15 @@
 # Xamarin.Swift22.Support
 Gives Xamarin.iOS bindings support for Swift 2.2
 
+<h2>Swift2.3 or Swift3</h2>
+If your are looking for Swift2.3 or Swift3 go to:
+
+https://github.com/Flash3001/Xamarin.Swift23.Support
+
+or 
+
+https://github.com/Flash3001/Xamarin.Swift3.Support
+
 <h2>License</h2>
 Copyright 2016 Lucas Teixeira
 
