@@ -10,17 +10,4 @@
       </Reference>
     </ItemGroup>
   </Target>
-
-  <PropertyGroup Condition="'$(Platform)' == 'iPhoneSimulator'">
-    <CreateAppBundleDependsOn>
-		$(CreateAppBundleDependsOn);
-      	_CopySwiftLibsSimulator;
-	</CreateAppBundleDependsOn>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Platform)' == 'iPhone'">
-	<CodesignDependsOn>
-    $(CodesignDependsOn);
-    _RemoveExtraLibs;
-  </CodesignDependsOn>
-  </PropertyGroup>
 </Project>
